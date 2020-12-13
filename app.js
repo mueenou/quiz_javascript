@@ -90,11 +90,14 @@ const responseFormatter = () => {
 const bonneFormatter = () => {
     return score > 1 ? 'bonnes' : 'bonne'
 }
+
 buttonEl.addEventListener('click', () =>{
     const answer = getSelectedResponse();
-
-    allAnswers.push(answer)
-    allRightAnswers.push(questions[currentQuestion].correct)
+    const correctAnswer = questions[currentQuestion].correct;
+    console.log(questions[currentQuestion][answer])
+    console.log(questions[currentQuestion][correctAnswer])
+    allAnswers.push(questions[currentQuestion][answer])
+    allRightAnswers.push(questions[currentQuestion][correctAnswer])
     if(answer) {
         console.log(answer, questions[currentQuestion].correct)
         if(answer === questions[currentQuestion].correct) {
